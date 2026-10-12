@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fake News Detector</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="brand">📰 Fake News Detector</div>
+    <div class="nav-links">
+      <a href="#analyze">Analyze</a>
+      <a href="#dashboard">Dashboard</a>
+      <a href="#history">History</a>
+      <button id="theme" class="icon-btn" title="Toggle dark mode">🌓</button>
+    </div>
+  </nav>
+ 
+  <header class="hero">
+    <h1>Is this news real or fake?</h1>
+    <p>Paste an article. A TF-IDF + Logistic Regression model checks its writing style and tells you how confident it is.</p>
+  </header>
+ 
+  <main class="container">
+    <!-- Analyze -->
+    <section class="card" id="analyze">
+      <h2>Analyze an article</h2>
+      <textarea id="txt" placeholder="Paste the news article text here (at least 20 characters)..."></textarea>
+      <div class="row">
+        <button class="btn primary" id="go">🔍 Analyze</button>
+        <button class="btn" id="clr">Clear</button>
+        <button class="btn ghost" id="s1">Sample: sensational</button>
+        <button class="btn ghost" id="s2">Sample: news report</button>
+        <span class="muted right" id="cnt">0 characters</span>
+      </div>
+      <div class="loader" id="load"><div class="spin"></div><span>Analyzing article...</span></div>
+      <div class="error" id="err"></div>
+ 
+      <div id="result" class="result">
+        <div class="result-head">
+          <div class="badge" id="badge"></div>
+          <div class="conf"><b id="conf"></b><span class="muted">confidence</span></div>
+        </div>
+        <div class="meter"><div class="meter-fill" id="fill"></div></div>
+        <div class="probs">
+          <div><span>Real</span><div class="bar"><i id="pReal" class="b-real"></i></div><b id="pRealT"></b></div>
+          <div><span>Fake</span><div class="bar"><i id="pFake" class="b-fake"></i></div><b id="pFakeT"></b></div>
+        </div>
+        <h3>Words that influenced this decision</h3>
+        <div class="chips" id="chips"></div>
+        <p class="muted small">Green words push toward Real, red words push toward Fake.</p>
+      </div>
+    </section>
+ 
+    <!-- Dashboard -->
+    <section class="grid" id="dashboard">
+      <div class="card stat"><span class="muted">Total checks</span><b id="sTotal">0</b></div>
+      <div class="card stat"><span class="muted">Real</span><b id="sReal" class="c-real">0</b></div>
+      <div class="card stat"><span class="muted">Fake</span><b id="sFake" class="c-fake">0</b></div>
+      <div class="card donut-card">
+        <div class="donut" id="donut"><span id="donutT">0%</span></div>
+        <div class="muted small">Share of Real news</div>
+      </div>
+    </section>
+ 
+    <!-- History -->
+    <section class="card" id="history">
+      <div class="row between">
+        <h2>History</h2>
+        <div class="row">
+          <div class="tabs" id="tabs">
+            <button class="tab active" data-f="">All</button>
+            <button class="tab" data-f="Real">Real</button>
+            <button class="tab" data-f="Fake">Fake</button>
+          </div>
+          <button class="btn danger" id="clh">Clear all</button>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>News</th><th>Result</th><th>Confidence</th><th>Time</th><th></th></tr></thead>
+          <tbody id="hist"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+ 
+  <footer class="footer">Fake News Detector | B.Tech Mini Project | It judges writing style, not factual truth.</footer>
+  <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+# Python bytecode and caches
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Local environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Large source datasets and generated manual-testing data
+/Fake.csv
+/True.csv
+/manual_testing.csv
+
+# Local application database and SQLite files
+*.db
+*.sqlite
+*.sqlite3
+
+# Notebook checkpoints
+.ipynb_checkpoints/
+
+# Test, type-checker, and build artifacts
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+build/
+dist/
+*.egg-info/
+
+# Editor and operating-system files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+Desktop.ini
