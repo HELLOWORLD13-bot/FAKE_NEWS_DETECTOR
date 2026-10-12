@@ -4,7 +4,6 @@ A web application that checks whether a news article looks **Real** or **Fake**.
 
 Built as a B.Tech mini project using NLP and classical machine learning (TF-IDF + Logistic Regression) with a Flask backend and SQLite database.
 
-![Dashboard screenshot](docs/screenshots/dashboard.png)
 
 ## Features
 
@@ -26,16 +25,16 @@ Fake.csv + True.csv → cleaning → text preprocessing → TF-IDF
 1. **Data:** Fake and True news datasets, labeled Fake = 0 and Real = 1.
 2. **Cleaning:** lowercase, remove links, punctuation, numbers, duplicates and the `(Reuters)` dateline (to avoid data leakage).
 3. **Features:** TF-IDF vectorization.
-4. **Models compared:** Logistic Regression, Decision Tree, Gradient Boosting [and Random Forest].
+4. **Models compared:** Logistic Regression, Decision Tree, Gradient Boosting.
 5. **Final model:** Logistic Regression, chosen for reliable confidence scores, explainability, speed and small model size.
 
 ## Results
 
 | Model | Accuracy | Precision | Recall | F1-Score |
 |---|---|---|---|---|
-| Logistic Regression | [ ]% | [ ]% | [ ]% | [ ]% |
-| Gradient Boosting | [ ]% | [ ]% | [ ]% | [ ]% |
-| Decision Tree | [ ]% | [ ]% | [ ]% | [ ]% |
+| Logistic Regression | [98.5]% | [98.36]% | [98.51]% | [98.44]% |
+| Gradient Boosting | [99.44]% | [99.44]% | [99.7]% | [99.4]% |
+| Decision Tree | [99.47]% | [99.57]% | [99.31]% | [99.4]% |
 
 Evaluated on a held-out [25]% test split with `random_state=42`.
 
@@ -69,7 +68,7 @@ fake-news-detector/
 ## Getting started
 
 ```bash
-git clone https://github.com/[your-username]/fake-news-detector.git
+git clone https://github.com/HELLOWORLD13-bot/fake-news-detector.git
 cd fake-news-detector
 python -m venv venv
 venv\Scripts\activate        # Windows  (Mac/Linux: source venv/bin/activate)
@@ -79,7 +78,7 @@ python app.py
 
 Open http://127.0.0.1:5000 in your browser.
 
-> The `model/` folder must contain `model.pkl` and `tfidf.pkl`. Generate them by running the training notebook, or download them from [link].
+> The `model/` folder must contain `model.pkl` and `tfidf.pkl`. Generate them by running the training notebook.
 
 ## API
 
@@ -105,12 +104,11 @@ Open http://127.0.0.1:5000 in your browser.
 - Deep learning models (LSTM / BERT) and multilingual support
 
 ## Dataset
-
-The Fake and True news datasets provided by [your college / teacher]. [If it is the ISOT dataset: Ahmed, Traore and Saad, 2017.]
+**Dataset credit:** Fake and True news dataset, accessed via the Kaggle notebook ["Fake News Detection" by mdnaimislam165436](https://www.kaggle.com/code/mdnaimislam165436/fake-news-detection/input).
 
 ## Authors
 
-[Name 1], [Name 2], [Name 3], B.Tech Computer Science, [College name]
+Prayash C Sharma, B.Tech Computer Science, Assam Don Bosco University
 
 ## License
 
